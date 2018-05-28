@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0a83fbd-7295-44f7-bb54-836783d814a0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/readings/serializers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/readings/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/readings/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/saints/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/saints/serializers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/saints/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/api/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/data/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/data/models/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/data/models/bible.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/data/models/saint.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/requirements.packages" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/quickstart/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/quickstart/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/quickstart/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/quickstart/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/quickstart/views.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/quickstart/__init__.py" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/quickstart/migrations/__init__.py" afterPath="$PROJECT_DIR$/data/api/readings/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/settings.py" afterPath="$PROJECT_DIR$/data/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/urls.py" afterPath="$PROJECT_DIR$/data/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,18 +54,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/data/models/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -130,6 +96,16 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -216,7 +192,6 @@
         <option value="$PROJECT_DIR$/requirements.pip" />
         <option value="$PROJECT_DIR$/data/data/settings.py" />
         <option value="$PROJECT_DIR$/data/data/urls.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/quickstart/views.py" />
         <option value="$PROJECT_DIR$/data/models/bible.py" />
         <option value="$PROJECT_DIR$/requirements.packages" />
@@ -231,6 +206,7 @@
         <option value="$PROJECT_DIR$/data/api/readings/urls.py" />
         <option value="$PROJECT_DIR$/data/api/urls.py" />
         <option value="$PROJECT_DIR$/data/urls.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -305,12 +281,6 @@
               <item name="data.cath-back" type="b2602c69:ProjectViewProjectNode" />
               <item name="data.cath-back" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="data.cath-back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data.cath-back" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="data.cath-back" type="b2602c69:ProjectViewProjectNode" />
@@ -455,15 +425,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527469829655</updated>
-      <workItem from="1527469831563" duration="7800000" />
+      <workItem from="1527469831563" duration="7879000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7800000" />
+    <option name="totallyTimeSpent" value="7879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -475,7 +446,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -529,14 +500,6 @@
           <folding>
             <element signature="e#221#230#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,6 +713,14 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
