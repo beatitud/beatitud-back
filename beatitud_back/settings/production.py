@@ -1,4 +1,4 @@
-from feedis_backend.settings.base import *
+from beatitud_back.settings.base import *
 
 DEBUG = False
 

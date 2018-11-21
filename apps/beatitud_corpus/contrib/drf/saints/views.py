@@ -6,5 +6,5 @@ import requests
 
 class SaintsViews(APIView):
     def get(self, request, format=None):
-
+        print("SAINT")
         return Response(data={"data": "I am a saint"}, status=status.HTTP_200_OK)
