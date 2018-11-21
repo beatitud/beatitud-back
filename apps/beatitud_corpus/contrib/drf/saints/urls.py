@@ -1,9 +1,9 @@
 from django.conf.urls import url
 
-from .views import ReadingsViews
+from .views import SaintsViews
 
 urlpatterns = [
-    url(r'^$', ReadingsViews.as_view(), name='readings'),
+    url(r'^saints/$', SaintsViews.as_view(), name='saints'),
     # url(r'apps/$', get_app_versions, name='reviews-apps'),
     # url(r'tags/$', get_tags, name='tags-reviews'),
 ]
