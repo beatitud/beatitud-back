@@ -9,6 +9,7 @@
     
     b/ set:
     ```text
+    DJANGO_SETTINGS_MODULE=beatitud_back.settings.local
     SECRET_KEY=#SET A KEY#
     ```
     
@@ -21,11 +22,10 @@
     DB_PASSWORD=#SET A PASSWORD#
     ```
         
-4. in the docker-compose file set the DJANGO_SETTINGS_MODULE as you want
-5. docker-compose up --build -d 
-6. docker-compose exec django /bin/bash
-7. python manage.py migrate
-8. python manage.py createsuperuser
+4. docker-compose up --build -d 
+5. docker-compose exec django /bin/bash
+6. python manage.py migrate
+7. python manage.py createsuperuser
         
         
 ## Structure (TO READ)
