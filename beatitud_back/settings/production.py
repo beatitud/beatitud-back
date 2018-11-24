@@ -22,7 +22,7 @@ DATABASES = {
         'NAME': os.environ['DB_DATABASE'],
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': 'db',
+        'HOST': 'beatitud.ctegnyot3xyq.eu-west-3.rds.amazonaws.com',
         'PORT': '5432',
         'TIMEZONE': 'UTC'
     }
