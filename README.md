@@ -73,5 +73,5 @@ See https://docs.djangoproject.com/en/2.1/topics/settings/.
 ## Connection to Beatitud VM
 
 ```shell
-$ ssh -i "beatitud_server_key_pair.pem" ubuntu@ec2-35-180-135-26.eu-west-3.compute.amazonaws.com
+$ ssh ubuntu@beatitud.io
 ```

@@ -24,6 +24,7 @@ DATABASES = {
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': 'beatitud.ctegnyot3xyq.eu-west-3.rds.amazonaws.com',
         'PORT': '5432',
-        'TIMEZONE': 'UTC'
+        'TIMEZONE': 'UTC',
+        'CONN_MAX_AGE': 500
     }
 }
