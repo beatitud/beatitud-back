@@ -75,3 +75,8 @@ See https://docs.djangoproject.com/en/2.1/topics/settings/.
 ```shell
 $ ssh ubuntu@beatitud.io
 ```
+
+Build django without cache :
+```shell
+$  sudo docker-compose build --no-cache django
+```
