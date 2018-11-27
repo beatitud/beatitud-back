@@ -2,3 +2,5 @@ django==2.1
 djangorestframework==3.8.2
 requests
 bs4
+
+-r ./apps/beatitud_corpus/requirements.pip

@@ -26,3 +26,6 @@ DATABASES = {
         'CONN_MAX_AGE': 500
     }
 }
+
+ELASTICSEARCH_URL = 'search-beatitud-pxtyvfcgwra3pwfl34qhw4bejm.eu-west-3.es.amazonaws.com'
+ELASTICSEARCH_PORT = 443

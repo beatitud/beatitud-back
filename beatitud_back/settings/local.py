@@ -16,3 +16,6 @@ DATABASES = {
         'TIMEZONE': 'UTC'
     }
 }
+
+ELASTICSEARCH_URL = 'elasticsearch'
+ELASTICSEARCH_PORT = 9200
