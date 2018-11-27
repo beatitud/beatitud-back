@@ -76,6 +76,11 @@ See https://docs.djangoproject.com/en/2.1/topics/settings/.
 $ ssh ubuntu@beatitud.io
 ```
 
+Pull all git repos:
+```shell
+git submodule update --recursive --remote
+```
+
 Build django without cache :
 ```shell
 $  sudo docker-compose build --no-cache django
