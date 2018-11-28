@@ -5,7 +5,7 @@ from elasticsearch_dsl import DocType, Integer, Keyword, Text, Date, Boolean, Fl
 from elasticsearch.helpers import bulk
 from elasticsearch import Elasticsearch
 from apps.beatitud_corpus.contrib.elasticsearch import *
-from .language import Language
+from .language import Language, Translation
 
 
 class Book(models.Model):
@@ -19,12 +19,14 @@ class Book(models.Model):
 class Verse(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     verse_id = models.CharField(null=False, unique=True, max_length=50, db_index=True)
-    verse_nb = models.IntegerField(db_index=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    chapter = models.IntegerField(db_index=True)
+    number = models.IntegerField(db_index=True)
     text = models.TextField()
     text_introductory = models.TextField()
     text_ending = models.TextField()
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
+    translation = models.ForeignKey(Translation, on_delete=models.CASCADE, null=True)
 
     class Meta:
         db_table = 'bible_verse'
@@ -34,10 +36,14 @@ class Verse(models.Model):
             meta={'id': self.id},
             id=self.id,
             verse_id=self.verse_id,
+            book=self.book.name,
+            chapter=self.chapter,
+            number=self.number,
             text=self.text,
             text_introductory=self.text_introductory,
             text_ending=self.text_ending,
-            book=list(self.book.name),
+            language=self.language.code,
+            translation=self.translation.code,
             len=len(self.text),
         )
         obj.save(index='review-index')
@@ -50,12 +56,15 @@ def index_post(sender, instance, **kwargs):
 
 
 class VerseIndex(DocType):
-    verse_id = Text()
-    verse_nb = Integer()
+    verse_id = Text(fielddata=True)
+    book = Text(fielddata=True)
+    chapter = Text(fielddata=True)
+    number = Integer(fielddata=True)
     text = Text()
     text_introductory = Text()
     text_ending = Text()
-    book = Text(fielddata=True)
+    language = Text(fielddata=True)
+    translation = Text(fielddata=True)
     len = Integer()
 
     class Meta:
