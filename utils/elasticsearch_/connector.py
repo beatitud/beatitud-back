@@ -1,6 +1,6 @@
+from django.conf import settings
 from elasticsearch_dsl.connections import connections
 
-from django.conf import settings
 
 connections.create_connection(hosts=[{
     'host': settings.ELASTICSEARCH_URL,

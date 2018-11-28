@@ -3,8 +3,8 @@ import os
 import sys
 
 if __name__ == '__main__':
-    # If DJANGO_SETTINGS_MODULE not given, then we take productions settings, be careful
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'beatitud_back.settings.production')
+    # If DJANGO_SETTINGS_MODULE not given, then we take local settings
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'beatitud_back.settings.local')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

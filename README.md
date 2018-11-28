@@ -46,7 +46,7 @@ beatitud_back
 |-  |-  |- ... (everything genereated by django-admin 
                 startapp except from those move into contrib/drf)
 |-   env                                     # Apps env var
-|-   beatitud_back                              # All settings for this project
+|-   beatitud_back                           # All settings for this project
 ```
 1- As Django said, every app should be independent from the project that's why we put them in a different directory. It is really important to think each app as a gear that could be used by another system in the future.
 2- Since we are using Django rest framework we set this contribution in each app in a subdirectory with every files changed by this contribution so as to be able to choose another contribution one day and know exactly what we have to alter.

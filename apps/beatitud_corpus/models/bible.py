@@ -1,10 +1,10 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from elasticsearch_dsl import DocType, Integer, Keyword, Text, Date, Boolean, Float, Search
-from elasticsearch.helpers import bulk
+from elasticsearch_dsl import DocType, Integer, Text
+from utils.elasticsearch_ import *
 from elasticsearch import Elasticsearch
-from apps.beatitud_corpus.contrib.elasticsearch import *
+from elasticsearch.helpers import bulk
 from .language import Language, Translation
 
 
@@ -20,8 +20,8 @@ class Verse(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     verse_id = models.CharField(null=False, unique=True, max_length=50, db_index=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    chapter = models.IntegerField(db_index=True)
-    number = models.IntegerField(db_index=True)
+    chapter = models.IntegerField(db_index=True, null=True)
+    number = models.IntegerField(db_index=True, null=True)
     text = models.TextField()
     text_introductory = models.TextField()
     text_ending = models.TextField()
