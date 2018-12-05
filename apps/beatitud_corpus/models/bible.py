@@ -11,17 +11,26 @@ from .language import Language, Translation
 class Book(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     name = models.TextField(db_index=True)
+    chapter_count = models.IntegerField(null=True)
 
     class Meta:
         db_table = 'bible_book'
 
 
-class Verse(models.Model):
+class VerseRef(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    verse_id = models.CharField(null=False, unique=True, max_length=50, db_index=True)
+    code = models.CharField(db_index=True, max_length=30)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     chapter = models.IntegerField(db_index=True, null=True)
     number = models.IntegerField(db_index=True, null=True)
+
+    class Meta:
+        db_table = 'bible_verse_ref'
+
+
+class Verse(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    ref = models.ForeignKey(VerseRef, on_delete=models.CASCADE)
     text = models.TextField()
     text_introductory = models.TextField()
     text_ending = models.TextField()
@@ -35,7 +44,7 @@ class Verse(models.Model):
         obj = VerseIndex(
             meta={'id': self.id},
             id=self.id,
-            verse_id=self.verse_id,
+            ref=self.ref.code,
             book=self.book.name,
             chapter=self.chapter,
             number=self.number,
@@ -56,7 +65,7 @@ def index_post(sender, instance, **kwargs):
 
 
 class VerseIndex(DocType):
-    verse_id = Text(fielddata=True)
+    ref = Text(fielddata=True)
     book = Text(fielddata=True)
     chapter = Text(fielddata=True)
     number = Integer(fielddata=True)
