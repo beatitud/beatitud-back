@@ -27,4 +27,5 @@ RUN mkdir -p /home/django/webapp
 WORKDIR /home/django/webapp
 
 COPY . .
+RUN apk add git
 RUN pip install --index-url=https://pypi.python.org/simple/ -r requirements.pip
