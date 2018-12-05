@@ -99,7 +99,8 @@ class VaticanScraper:
 
 
 if __name__ == '__main__':
-    vs = VaticanScraper()
+    language = "en"
+    vs = VaticanScraper(language=language)
 
     print("[*] Scraping index...")
     content_index = vs.get_content_index(content_type="homilies")
@@ -110,6 +111,6 @@ if __name__ == '__main__':
 
     print("[*] Saving content...")
     import json
-    with open('./apps/scrapers/vatican/pope_homilies.json', 'w') as f:
+    with open('./apps/scrapers/vatican/pope_homilies_{}.json'.format(language), 'w') as f:
         json.dump(whole_content, f)
     print("[*] Done! =)")
