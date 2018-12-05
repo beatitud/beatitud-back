@@ -3,3 +3,4 @@ djangorestframework==3.8.2
 requests
 bs4
 elasticsearch-dsl==6.3.0
+https://github.com/beatitud/python-scriptures.git
