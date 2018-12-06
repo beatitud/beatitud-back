@@ -23,9 +23,11 @@ RUN rm -r /root/.cache
 RUN apk add --no-cache bash \
     && apk add --no-cache bash-completion
 
+# Install Git (to be able to install libs from git)
+RUN apk add git
+
 RUN mkdir -p /home/django/webapp
 WORKDIR /home/django/webapp
 
 COPY . .
-RUN apk add git
 RUN pip install --index-url=https://pypi.python.org/simple/ -r requirements.pip

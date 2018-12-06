@@ -1,26 +1,33 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from elasticsearch_dsl import DocType, Integer, Text
-from utils.elasticsearch_ import *
-from elasticsearch import Elasticsearch
-from elasticsearch.helpers import bulk
 from .language import Language, Translation
 
 
-class Book(models.Model):
+class BibleVersion(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    name = models.TextField(db_index=True)
+    code = models.CharField(db_index=True, max_length=30)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
+    label = models.CharField(max_length=100, null=True)
+    description = models.CharField(max_length=200, null=True)
+
+    class Meta:
+        db_table = 'bible_version'
+
+
+class BibleBook(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    code = models.TextField(db_index=True)
     chapter_count = models.IntegerField(null=True)
 
     class Meta:
         db_table = 'bible_book'
 
 
-class VerseRef(models.Model):
+class BibleVerseRef(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     code = models.CharField(db_index=True, max_length=30)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(BibleBook, on_delete=models.CASCADE)
     chapter = models.IntegerField(db_index=True, null=True)
     number = models.IntegerField(db_index=True, null=True)
 
@@ -28,59 +35,38 @@ class VerseRef(models.Model):
         db_table = 'bible_verse_ref'
 
 
-class Verse(models.Model):
+class BibleVerse(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    ref = models.ForeignKey(VerseRef, on_delete=models.CASCADE)
+    ref = models.ForeignKey(BibleVerseRef, on_delete=models.CASCADE, null=True)
+    version = models.ForeignKey(BibleVersion, on_delete=models.CASCADE, null=True)
     text = models.TextField()
-    text_introductory = models.TextField()
-    text_ending = models.TextField()
-    language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
-    translation = models.ForeignKey(Translation, on_delete=models.CASCADE, null=True)
+    text_introductory = models.TextField(null=True)
+    text_ending = models.TextField(null=True)
 
     class Meta:
         db_table = 'bible_verse'
 
     def indexing(self):
-        obj = VerseIndex(
+        from apps.beatitud_corpus.models import BibleVerseIndex
+        obj = BibleVerseIndex(
             meta={'id': self.id},
             id=self.id,
             ref=self.ref.code,
-            book=self.book.name,
-            chapter=self.chapter,
-            number=self.number,
+            book=self.ref.book.code,
+            chapter=self.ref.chapter,
+            number=self.ref.number,
             text=self.text,
             text_introductory=self.text_introductory,
             text_ending=self.text_ending,
-            language=self.language.code,
-            translation=self.translation.code,
+            language=self.version.language.code,
+            version=self.version.code,
             len=len(self.text),
         )
-        obj.save(index='review-index')
+        obj.save()
         return obj.to_dict(include_meta=True)
 
 
-@receiver(post_save, sender=Verse)
+@receiver(post_save, sender=BibleVerse)
 def index_post(sender, instance, **kwargs):
     instance.indexing()
 
-
-class VerseIndex(DocType):
-    ref = Text(fielddata=True)
-    book = Text(fielddata=True)
-    chapter = Text(fielddata=True)
-    number = Integer(fielddata=True)
-    text = Text()
-    text_introductory = Text()
-    text_ending = Text()
-    language = Text(fielddata=True)
-    translation = Text(fielddata=True)
-    len = Integer()
-
-    class Meta:
-        index = 'bible-verse-index'
-
-
-def bulk_indexing():
-    VerseIndex.init(index=VerseIndex.Meta.index)
-    es = Elasticsearch()
-    bulk(client=es, actions=(b.indexing() for b in Verse.objects.all().iterator()))

@@ -1,10 +1,10 @@
-from apps.beatitud_corpus.models import Verse
+from apps.beatitud_corpus.models import BibleVerse
 from rest_framework import serializers
 
-__all__ = ['VerseSerializer',]
+__all__ = ['BibleVerseSerializer',]
 
 
-class VerseSerializer(serializers.ModelSerializer):
+class BibleVerseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Verse
+        model = BibleVerse
         exclude = []

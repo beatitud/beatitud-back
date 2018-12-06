@@ -17,5 +17,6 @@ DATABASES = {
     }
 }
 
-ELASTICSEARCH_URL = 'elasticsearch'
+ELASTICSEARCH_HOST = 'elasticsearch'
 ELASTICSEARCH_PORT = 9200
+ELASTICSEARCH_ALIAS = 'elasticsearch-local'

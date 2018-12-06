@@ -27,5 +27,6 @@ DATABASES = {
     }
 }
 
-ELASTICSEARCH_URL = 'search-beatitud-pxtyvfcgwra3pwfl34qhw4bejm.eu-west-3.es.amazonaws.com'
+ELASTICSEARCH_HOST = 'search-beatitud-pxtyvfcgwra3pwfl34qhw4bejm.eu-west-3.es.amazonaws.com'
 ELASTICSEARCH_PORT = 443
+ELASTICSEARCH_ALIAS = 'elasticsearch-prod'
