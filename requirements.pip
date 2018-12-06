@@ -4,3 +4,4 @@ requests
 bs4
 elasticsearch-dsl==6.3.0
 git+https://github.com/beatitud/bible-ref-parser-py.git
+progressbar

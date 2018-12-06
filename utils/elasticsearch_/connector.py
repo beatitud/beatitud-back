@@ -1,7 +1,5 @@
 from django.conf import settings
 from elasticsearch_dsl.connections import connections
-from elasticsearch import Elasticsearch
-from elasticsearch.helpers import bulk
 
 
 connections.create_connection(hosts=[{

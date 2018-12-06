@@ -26,6 +26,12 @@ DATABASES = {
         'CONN_MAX_AGE': 500
     }
 }
+output.elasticsearch:
+  hosts: ["search-beatitud-pxtyvfcgwra3pwfl34qhw4bejm.eu-west-3.es.amazonaws.com"]
+  username: ""
+  password: ""
+setup.kibana:
+  host: "search-beatitud-pxtyvfcgwra3pwfl34qhw4bejm.eu-west-3.es.amazonaws.com/_plugin/kibana"
 
 ELASTICSEARCH_HOST = 'search-beatitud-pxtyvfcgwra3pwfl34qhw4bejm.eu-west-3.es.amazonaws.com'
 ELASTICSEARCH_PORT = 443

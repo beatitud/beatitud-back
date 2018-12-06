@@ -1,4 +1,4 @@
-version: '3'
+version: '2.2'
 
 services:
 
@@ -53,7 +53,7 @@ services:
     image: docker.elastic.co/kibana/kibana:6.5.2
     container_name: beatitud_kibana
     volumes:
-    - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    - ./apps/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
 
 volumes:
   db:

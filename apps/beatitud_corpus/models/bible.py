@@ -47,7 +47,7 @@ class BibleVerse(models.Model):
         db_table = 'bible_verse'
 
     def indexing(self):
-        from apps.beatitud_corpus.models import BibleVerseIndex
+        from apps.beatitud_corpus.index import BibleVerseIndex
         obj = BibleVerseIndex(
             meta={'id': self.id},
             id=self.id,

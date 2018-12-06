@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from apps.beatitud_corpus.models import BibleVerseIndex
+from apps.beatitud_corpus.index import BibleVerseIndex
 
 
 class Command(BaseCommand):
