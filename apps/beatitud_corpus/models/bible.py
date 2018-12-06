@@ -69,4 +69,3 @@ class BibleVerse(models.Model):
 @receiver(post_save, sender=BibleVerse)
 def index_post(sender, instance, **kwargs):
     instance.indexing()
-

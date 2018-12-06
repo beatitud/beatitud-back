@@ -83,5 +83,5 @@ git submodule update --recursive --remote
 
 Build django without cache :
 ```shell
-$  sudo docker-compose build --no-cache django
+$  docker-compose build --no-cache django
 ```

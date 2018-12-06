@@ -1,14 +1,14 @@
 version: '3'
 
 services:
+
   django:
     build: .
+    container_name: beatitud_back_django
     env_file:
       - env/django_variables.env
-      # We need those to configure default db of django
       - env/db_postgres_variables.env
     volumes:
-      # Useful in order not to give in the container a lot of useless files that we already wanted to ignore in the dockerignore
     - ./beatitud_back:/home/django/webapp/beatitud_back
     - ./apps:/home/django/webapp/apps
     ports:
@@ -16,8 +16,10 @@ services:
     command: /usr/bin/python manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
+
   db:
     image: postgres:10.5-alpine
+    container_name: beatitud_postgres
     restart: always
     env_file:
       - ./env/db_postgres_variables.env
@@ -30,6 +32,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
     container_name: beatitud_elasticsearch
@@ -46,7 +49,14 @@ services:
     ports:
     - 9200:9200
 
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.5.2
+    container_name: beatitud_kibana
+    volumes:
+    - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+
 volumes:
   db:
   elasticsearch:
+  kibana:
 
