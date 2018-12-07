@@ -9,6 +9,7 @@ services:
     env_file:
       - env/django_variables.env
       - env/db_postgres_variables.env
+      - env/elasticsearch_variables.env
     volumes:
     - ./beatitud_back:/home/django/webapp/beatitud_back
     - ./apps:/home/django/webapp/apps

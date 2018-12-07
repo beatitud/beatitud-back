@@ -21,6 +21,13 @@
     DB_DATABASE=beatitud
     DB_PASSWORD=#SET A PASSWORD#
     ```
+    
+    e/ create a file elasticsearch_variables.env
+    
+    f/ set:
+    ```text
+    ELASTICSEARCH_ALIAS=elasticsearch-local
+    ```
         
 4. docker-compose up --build -d 
 5. docker-compose exec django /bin/bash
