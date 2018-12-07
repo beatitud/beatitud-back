@@ -19,7 +19,7 @@ from django.urls import include, path
 API_VERSION = "v1"
 
 urlpatterns = [
-    path('api/{}/corpus/'.format(API_VERSION), include('apps.beatitud_corpus.urls')),
+    path('{}/corpus/'.format(API_VERSION), include('apps.beatitud_corpus.urls')),
     path('users/', include('apps.beatitud_users.urls')),
     path('admin/', admin.site.urls),
 ]

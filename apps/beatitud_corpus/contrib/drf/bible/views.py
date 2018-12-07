@@ -77,13 +77,12 @@ def build_search_from_params(params):
 
     s = Search(index='bible-verse-index')
     s = s.query(Q('bool', must=must, filter=filters, should=should))
-    s = s.highlight(fields=["title", "body", "author"], fragment_size=0)
+    # s = s.highlight(fields=["title", "body", "author"], fragment_size=0)
 
     return s
 
 
 class BibleVerseViews(APIView):
-    permission_classes = ()
 
     def get(self, request, format=None):
         # We collect params
@@ -110,28 +109,28 @@ class BibleVerseViews(APIView):
         # Pagination, to limit quantity of data
         _from = params.get("_from", 0)
         _size = params.get("_size", 15)
-        s = s[_from, _from + _size]
+        s = s[_from: _from + _size]
 
         # Order by date
-        s = s.sort('-creation_date', )
+        # s = s.sort('-creation_date', )
 
         search = s.execute()
         verses = EsSerializer(data=search)
         verses = verses["hits"]["hits"]
 
         # Format data
-        for index, review in enumerate(verses):
-            verses[index] = review["_source"]
-            verses[index]["id"] = int(review["_id"])
+        for index, verse in enumerate(verses):
+            verses[index] = verse["_source"]
+            verses[index]["id"] = int(verse["_id"])
             verses[index]["persona"] = verses[index].pop("personas", '')
-            if not review.get("highlight", None):
+            if not verse.get("highlight", None):
                 continue
-            if review["highlight"].get("author", None):
-                verses[index]["author"] = review["highlight"]["author"][0]
-            if review["highlight"].get("title", None):
-                verses[index]["title"] = review["highlight"]["title"][0]
-            if review["highlight"].get("body", None):
-                verses[index]["body"] = review["highlight"]["body"][0]
+            if verse["highlight"].get("author", None):
+                verses[index]["author"] = verse["highlight"]["author"][0]
+            if verse["highlight"].get("title", None):
+                verses[index]["title"] = verse["highlight"]["title"][0]
+            if verse["highlight"].get("body", None):
+                verses[index]["body"] = verse["highlight"]["body"][0]
 
         # We prepare the data to return
         serialized = BibleVerseSerializer(verses, many=True)
