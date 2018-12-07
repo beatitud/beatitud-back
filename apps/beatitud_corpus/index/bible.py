@@ -21,5 +21,6 @@ class BibleVerseIndex(DocType):
 
 
 def bible_verse_bulk_indexing():
+    BibleVerseIndex.init()
     es = Elasticsearch()
     bulk(client=es, actions=(b.indexing() for b in BibleVerse.objects.all().iterator()))
