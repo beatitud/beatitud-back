@@ -1,0 +1,168 @@
+# Bible version
+- model: beatitud_corpus.bible_version
+  pk: 1
+  fields:
+    code: "bj"
+    language_id: 1
+    description: "La Bible de Jérusalem en français"
+    label: "Bible de Jérusalem"
+- model: beatitud_corpus.bible_version
+  pk: 2
+  fields:
+    code: "bw"
+    language_id: 1
+    description: "Bible Works en français"
+    label: "Bible Works"
+- model: beatitud_corpus.bible_version
+  pk: 3
+  fields:
+    code: "tob"
+    language_id: 1
+    description: "Bible de Tob en français"
+    label: "Bible Tob"
+
+# Bible book
+- model: beatitud_corpus.bible_book
+  pk: 1
+  fields:
+    code: "gn"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 2
+  fields:
+    code: "ex"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 3
+  fields:
+    code: "le"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 4
+  fields:
+    code: "nb"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 5
+  fields:
+    code: "dn"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 6
+  fields:
+    code: "jos"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 7
+  fields:
+    code: "jg"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 8
+  fields:
+    code: "rt"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 9
+  fields:
+    code: "1s"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 10
+  fields:
+    code: "2s"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 11
+  fields:
+    code: "1r"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 12
+  fields:
+    code: "2r"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 13
+  fields:
+    code: "1ch"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 14
+  fields:
+    code: "2ch"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 15
+  fields:
+    code: "ez"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 16
+  fields:
+    code: "ne"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 17
+  fields:
+    code: "tb"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 18
+  fields:
+    code: "jdt"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 19
+  fields:
+    code: "est"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 20
+  fields:
+    code: "1m"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 21
+  fields:
+    code: "2m"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 22
+  fields:
+    code: "jb"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 23
+  fields:
+    code: "ps"
+    chapter_count:
+    is_new_testament: false
+- model: beatitud_corpus.bible_book
+  pk: 24
+  fields:
+    code: "pr"
+    chapter_count:
+    is_new_testament: false

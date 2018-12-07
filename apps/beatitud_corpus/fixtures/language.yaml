@@ -1,0 +1,9 @@
+# Language
+- model: beatitud_corpus.language
+  pk: 1
+  fields:
+    code: fr
+- model: beatitud_corpus.language
+  pk: 1
+  fields:
+    code: en

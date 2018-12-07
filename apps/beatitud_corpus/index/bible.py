@@ -21,7 +21,6 @@ class BibleVerseIndex(DocType):
 
 
 def bible_verse_bulk_indexing():
-    # BibleVerseIndex.init('bible-verse-index')
     bulk(
         client=es_client,
         chunk_size=500,

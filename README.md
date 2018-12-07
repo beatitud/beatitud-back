@@ -75,20 +75,3 @@ django.setup()
 Otherwise settings in console won't be populated.
 See https://docs.djangoproject.com/en/2.1/topics/settings/.
 (You can setup pycharm to do it automatically in order to use its console.)
-
-
-## Connection to Beatitud VM
-
-```shell
-$ ssh ubuntu@beatitud.io
-```
-
-Pull all git repos:
-```shell
-git submodule update --recursive --remote
-```
-
-Build django without cache :
-```shell
-$  docker-compose build --no-cache django
-```
