@@ -2,7 +2,6 @@ from elasticsearch_dsl import DocType, Integer, Text
 from utils.elasticsearch_.connector import *
 from utils.elasticsearch_ import bulk, Elasticsearch
 from apps.beatitud_corpus.models import BibleVerse
-import progressbar
 
 
 class BibleVerseIndex(DocType):
@@ -23,5 +22,4 @@ class BibleVerseIndex(DocType):
 
 def bible_verse_bulk_indexing():
     es = Elasticsearch()
-    bar = progressbar.ProgressBar()
-    bulk(client=es, actions=(b.indexing() for b in bar(BibleVerse.objects.all().iterator())))
+    bulk(client=es, actions=(b.indexing() for b in BibleVerse.objects.all().iterator()))
