@@ -1,6 +1,6 @@
 from elasticsearch_dsl import DocType, Integer, Text
-from utils.elasticsearch_.connector import *
-from utils.elasticsearch_ import bulk, Elasticsearch
+from utils.elasticsearch_.connector import es_client
+from elasticsearch.helpers import bulk, parallel_bulk
 from apps.beatitud_corpus.models import BibleVerse
 
 
@@ -21,6 +21,11 @@ class BibleVerseIndex(DocType):
 
 
 def bible_verse_bulk_indexing():
-    BibleVerseIndex.init()
-    es = Elasticsearch()
-    bulk(client=es, actions=(b.indexing() for b in BibleVerse.objects.all().iterator()))
+    # BibleVerseIndex.init('bible-verse-index')
+    bulk(
+        client=es_client,
+        chunk_size=500,
+        actions=(b.indexing(perform_save=False) for b in BibleVerse.objects.all().iterator()),
+        # thread_count=4,
+        stats_only=True,
+    )

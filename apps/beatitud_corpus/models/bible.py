@@ -46,7 +46,7 @@ class BibleVerse(models.Model):
     class Meta:
         db_table = 'bible_verse'
 
-    def indexing(self):
+    def indexing(self, perform_save=True):
         from apps.beatitud_corpus.index import BibleVerseIndex
         obj = BibleVerseIndex(
             meta={'id': self.id},
@@ -62,7 +62,8 @@ class BibleVerse(models.Model):
             version=self.version.code,
             len=len(self.text),
         )
-        obj.save()
+        if perform_save:
+            obj.save()
         return obj.to_dict(include_meta=True)
 
 
