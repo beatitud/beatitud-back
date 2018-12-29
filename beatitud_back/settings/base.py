@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'apps.beatitud_corpus',
     'apps.beatitud_users',
+    'apps.beatitud_corpus',
+    'apps.beatitud_annotate',
 ]
 
 MIDDLEWARE = [
